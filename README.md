@@ -5,7 +5,7 @@ The goal of this project is to build a fully functional, enterprise-simulated lo
 
 ## Technologies Used
 * **Hypervisor:** Proxmox VE
-* **Network & Firewall:** pfSense
+* **Network & Firewall:** OPNsense
 * **Infrastructure:** Windows Server 2022 (Active Directory), Windows 11
 * **Telemetry & EDR:** Microsoft Sysmon
 * **SIEM:** Splunk Enterprise
