@@ -1,28 +1,25 @@
-Dzień 1: Instalacja Proxmox, OPNsense i Kubuntu
-Co zrobiłem:
+Dzień 1: 23.03.2026
 
-    Walka z obrazem ISO: Pobrałem OPNsense. Musiałem ręcznie wyciągnąć plik .iso z archiwum .bz2 przez 7-Zipa, bo Windows próbował go rozpakować jako folder.
+    Pobranie obrazu OPNsense i ręczne wyciągnięcie pliku ISO z archiwum bz2 przy użyciu 7-Zip.
 
-    Sieć w Proxmoxie: Dodałem drugi mostek sieciowy vmbr1 (SOC-LAN). Dzięki temu mam teraz dwie osobne sieci: jedną z internetem domowym (vmbr0) i drugą, całkowicie odizolowaną dla maszyn w labie.
+    Dodanie mostka sieciowego vmbr1 w Proxmox do stworzenia odizolowanej sieci SOC LAN.
 
-    Instalacja OPNsense:
+    Instalacja OPNsense na systemie plików ZFS.
 
-        System postawiony na ZFS.
+    Przypisanie interfejsów: WAN pod vtnet0 i LAN pod vtnet1.
 
-        WAN przypisany do vtnet0 (bierze net z domu).
+    Konfiguracja adresu IP LAN na 192.168.1.1 i uruchomienie serwera DHCP.
 
-        LAN przypisany do vtnet1 (adres 192.168.1.1).
+    Postawienie maszyny wirtualnej z Kubuntu i wpięcie jej do vmbr1.
 
-        Włączyłem DHCP, żeby router sam nadawał adresy maszynom w labie.
+    Zalogowanie się do panelu OPNsense przez przeglądarkę pod adresem https://192.168.1.1.
 
-    Stacja robocza Kubuntu:
+    Przejście przez Wizard, ustawienie DNS na 8.8.8.8 i 1.1.1.1.
 
-        Postawiłem VM z Kubuntu i wpiąłem ją do vmbr1.
+Problemy i rozwiązania:
 
-        System automatycznie dostał IP z routera.
+    Problem: Błąd w Wizardzie przy DNS (nieprawidłowy segment sieci). Rozwiązanie: Usunięcie pustych pól pod wpisanymi adresami IP.
 
-        Potwierdziłem, że widzę panel zarządzania OPNsense przez przeglądarkę pod adresem https://192.168.1.1.
+    Problem: Brak wyjścia na świat z wnętrza laboratorium. Rozwiązanie: Wyłączenie blokowania sieci prywatnych (RFC1918) na WAN, aby OPNsense mógł komunikować się z domowym routerem i przekazywać internet.
 
-Schemat połączeń:
-
-Internet <-> Router domowy <-> OPNsense (WAN/LAN) <-> Kubuntu
+Status: Sieć działa, Kubuntu ma internet, laboratorium jest odizolowane.
