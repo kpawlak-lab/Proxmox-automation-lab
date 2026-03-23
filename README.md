@@ -1,29 +1,35 @@
-# Automated SOC & Incident Response Lab
+Automated SOC & Incident Response Lab
+Cel projektu
 
-## Objective
-The goal of this project is to build a fully functional, enterprise-simulated local laboratory to practice Threat Hunting, Log Centralization, and Incident Response Automation. The environment simulates a corporate network under attack and demonstrates the automated triage of security alerts.
+Budowa pełnowymiarowego, symulowanego środowiska korporacyjnego do nauki Threat Huntingu i automatyzacji Incident Response. Projekt obejmuje pełną ścieżkę: od ataku, przez detekcję w SIEM, po automatyczny triage w SOAR.
+Architektura i Technologie
 
-## Technologies Used
-* **Hypervisor:** Proxmox VE
-* **Network & Firewall:** OPNsense
-* **Infrastructure:** Windows Server 2022 (Active Directory), Windows 11
-* **Telemetry & EDR:** Microsoft Sysmon
-* **SIEM:** Splunk Enterprise
-* **SOAR (Automation):** n8n
-* **Threat Intelligence:** VirusTotal API
+    Hypervisor: Proxmox VE – zarządzanie infrastrukturą wirtualną.
 
-## Architecture Diagram
-///draw.io ///
+    Network & Firewall: OPNsense – izolacja segmentu SOC LAN (192.168.1.0/24) od sieci domowej.
 
-## Use Cases & Detections Developed
+    Infrastruktura: Windows Server 2022 (Active Directory), Windows 11, Kubuntu (Management & Attack Node).
 
-### 1. Active Directory Brute-Force Detection
-* **Attack Tool:** Hydra / Kali Linux
-* **Telemetry:** Windows Security Event ID 4625
-* **Detection Logic:** [Link to SPL query]
+    Telemetria & EDR: Microsoft Sysmon – głębokie logowanie zdarzeń systemowych.
 
-### 2. Automated Alert Triage (SOAR)
-* **Trigger:** Splunk Webhook triggered by malicious PowerShell execution.
-* **Enrichment:** Automated API call to VirusTotal to check file hash reputation.
-* **Response:** Formatted alert pushed to a Slack channel with incident details.
-* **Playbook:** ///Link to n8n///
+    SIEM: Splunk Enterprise – centralizacja, analiza i korelacja logów.
+
+    SOAR: n8n – automatyzacja procesów bezpieczeństwa i komunikacja z API.
+
+    Threat Intelligence: VirusTotal API – wzbogacanie alertów o reputację plików.
+
+Scenariusze (Use Cases)
+
+    Active Directory Brute-Force:
+
+        Atakujący: Kubuntu (Hydra).
+
+        Cel: Windows Server 2022.
+
+        Detekcja: Monitorowanie Windows Security Event ID 4625 w Splunku.
+
+    Automatyczny Triage (SOAR):
+
+        Wyzwalacz: Wykrycie złośliwego skryptu PowerShell.
+
+        Akcja: Automatyczna weryfikacja hasha w VirusTotal i raport na kanał Slack.
