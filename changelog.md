@@ -1,4 +1,4 @@
-### 🛠 Phase 1: Core Infrastructure (COMPLETED 2026-03-23)
+###  Phase 1: Core Infrastructure (COMPLETED 2026-03-23)
 - **Hypervisor Setup:** Configured Proxmox VE on physical hardware (Intel i5-8600K).
 - **Network Virtualization:** Implemented two Linux Bridges (`vmbr0` for WAN, `vmbr1` for isolated SOC LAN).
 - **Firewall Deployment:** - Installed OPNsense with ZFS file system.
