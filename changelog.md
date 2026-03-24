@@ -23,3 +23,14 @@ Problemy i rozwiązania:
     Problem: Brak wyjścia na świat z wnętrza laboratorium. Rozwiązanie: Wyłączenie blokowania sieci prywatnych (RFC1918) na WAN, aby OPNsense mógł komunikować się z domowym routerem i przekazywać internet.
 
 Status: Sieć działa, Kubuntu ma internet, laboratorium jest odizolowane.
+Dzień 2: 24.03.2026
+
+    Zabezpieczenie środowiska: Wykonano snapshoty (migawki) maszyn OPNsense i Kubuntu w Proxmoxie po weryfikacji poprawnego działania sieci SOC LAN.
+
+    Instalacja Targetu: Wdrożenie maszyny wirtualnej z Windows Server 2022 Standard (Desktop Experience).
+
+    Konfiguracja sieci (Windows): Przypisanie statycznego adresu IP 192.168.1.10 w sieci vmbr1. Ustawienie OPNsense (192.168.1.1) jako bramy oraz serwera jako własnego DNS (127.0.0.1).
+
+    Wdrożenie Active Directory: Zmiana nazwy hosta na DC01. Instalacja roli AD DS i promowanie serwera na Kontroler Domeny w nowym lesie soc.local.
+
+Status: Sieć posiada aktywny Kontroler Domeny gotowy do generowania logów (Event ID) i przyjmowania ataków.
