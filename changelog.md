@@ -16,13 +16,8 @@ Dzień 1: 23.03.2026
 
     Przejście przez Wizard, ustawienie DNS na 8.8.8.8 i 1.1.1.1.
 
-Problemy i rozwiązania:
-
-    Problem: Błąd w Wizardzie przy DNS (nieprawidłowy segment sieci). Rozwiązanie: Usunięcie pustych pól pod wpisanymi adresami IP.
-
-    Problem: Brak wyjścia na świat z wnętrza laboratorium. Rozwiązanie: Wyłączenie blokowania sieci prywatnych (RFC1918) na WAN, aby OPNsense mógł komunikować się z domowym routerem i przekazywać internet.
-
 Status: Sieć działa, Kubuntu ma internet, laboratorium jest odizolowane.
+
 Dzień 2: 24.03.2026
 
     Zabezpieczenie środowiska: Wykonano snapshoty (migawki) maszyn OPNsense i Kubuntu w Proxmoxie po weryfikacji poprawnego działania sieci SOC LAN.
